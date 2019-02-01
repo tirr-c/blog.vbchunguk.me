@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
+    "lib": ["dom", "es2017"],
+    "moduleResolution": "node",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "typeRoots": ["./node_modules/@types", "./types"]
+  },
+  "includes": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "config/**/*.ts",
+    "types/**/*.d.ts"
+  ]
+}
