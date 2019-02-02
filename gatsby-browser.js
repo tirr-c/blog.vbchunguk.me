@@ -1,7 +1,8 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import './src/styles/global.css';
+import WebFont from 'webfontloader';
 
-// You can delete this file if you're not using it
+WebFont.load({
+    google: {
+        families: ['Fira Mono', 'Noto Sans KR:400,700:latin,korean'],
+    },
+});

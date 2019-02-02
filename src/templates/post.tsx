@@ -8,6 +8,7 @@ interface Props {
     data: {
         markdownRemark: {
             html: string;
+            excerpt: string;
             frontmatter: {
                 title: string;
             };
@@ -23,9 +24,10 @@ const Blog: React.FunctionComponent<Props> = props => {
     const title =
         props.data.markdownRemark.frontmatter.title ||
         props.data.markdownRemark.fields.slug;
+    const description = props.data.markdownRemark.excerpt;
     return (
         <>
-            <SEO title={title} />
+            <SEO title={title} description={description} />
             <Layout>
                 <h1>{title}</h1>
                 <div
@@ -42,6 +44,7 @@ export const query = graphql`
     query PostQuery($slug: String!) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
             html
+            excerpt
             frontmatter {
                 title
             }
