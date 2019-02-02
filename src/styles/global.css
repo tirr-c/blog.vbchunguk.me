@@ -11,3 +11,11 @@ body {
 pre, code {
     font-family: 'Fira Mono', monospace;
 }
+
+a {
+    color: #0288d1; /* Light Blue 700 */
+}
+
+a:visited {
+    color: #0277bd; /* Light Blue 800 */
+}
