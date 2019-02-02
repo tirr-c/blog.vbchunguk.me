@@ -1,7 +1,12 @@
 import React from 'react';
+import cn from 'classnames';
 import { StaticQuery, graphql } from 'gatsby';
 
 import * as styles from './Layout.module.css';
+
+interface Props {
+    bodyClassName?: string;
+}
 
 const QUERY = graphql`
     query SiteTitleQuery {
@@ -13,7 +18,10 @@ const QUERY = graphql`
     }
 `;
 
-const Layout: React.FunctionComponent = ({ children }) => (
+const Layout: React.FunctionComponent<Props> = ({
+    bodyClassName,
+    children,
+}) => (
     <StaticQuery
         query={QUERY}
         render={data => (
@@ -24,7 +32,13 @@ const Layout: React.FunctionComponent = ({ children }) => (
                     </h2>
                 </header>
                 <div className={styles.body}>
-                    <div className={`${styles.bodyInner} ${styles.centered}`}>
+                    <div
+                        className={cn(
+                            styles.bodyInner,
+                            styles.centered,
+                            bodyClassName,
+                        )}
+                    >
                         {children}
                     </div>
                 </div>

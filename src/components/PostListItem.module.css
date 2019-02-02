@@ -1,6 +1,9 @@
 .item {
     margin-top: 1.45rem;
 }
+.item:first-child {
+    margin-top: 0;
+}
 
 .title {
     font-size: 1.1em;
