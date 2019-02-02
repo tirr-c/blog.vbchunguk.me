@@ -1,3 +1,4 @@
+import 'prismjs/themes/prism.css';
 import './src/styles/global.css';
 import './src/styles/github-markdown.css';
 import WebFont from 'webfontloader';

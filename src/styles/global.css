@@ -8,7 +8,7 @@ body {
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-pre, code {
+pre, kbd, code {
     font-family: 'Fira Mono', monospace;
 }
 

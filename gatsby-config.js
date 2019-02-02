@@ -10,7 +10,26 @@ module.exports = {
         'gatsby-plugin-typescript',
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
-        'gatsby-transformer-remark',
+        {
+            resolve: 'gatsby-transformer-remark',
+            options: {
+                plugins: [
+                    {
+                        resolve: 'gatsby-remark-images',
+                        options: {
+                            maxWidth: 750,
+                        },
+                    },
+                    'gatsby-remark-autolink-headers',
+                    {
+                        resolve: 'gatsby-remark-prismjs',
+                        options: {
+                            noInlineHighlight: true,
+                        },
+                    },
+                ],
+            },
+        },
         {
             resolve: 'gatsby-source-filesystem',
             options: {
