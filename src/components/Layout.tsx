@@ -13,6 +13,7 @@ const QUERY = graphql`
         site {
             siteMetadata {
                 title
+                author
             }
         }
     }
@@ -44,8 +45,8 @@ const Layout: React.FunctionComponent<Props> = ({
                 </div>
                 <footer className={styles.footer}>
                     <div className={styles.centered}>
-                        © {new Date().getFullYear()}, Built with
-                        {` `}
+                        © {new Date().getFullYear()}{' '}
+                        {data.site.siteMetadata.author}, Built with{' '}
                         <a href="https://www.gatsbyjs.org">Gatsby</a>
                     </div>
                 </footer>
