@@ -20,3 +20,8 @@ a {
 a:visited {
     color: #0277bd; /* Light Blue 800 */
 }
+
+.gatsby-highlight code[class*='language-'],
+.gatsby-highlight pre[class*='language-'] {
+    font-family: 'Fira Mono', monospace;
+}
