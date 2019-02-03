@@ -13,8 +13,8 @@ pre, kbd, code {
 }
 
 a {
-    color: #0288d1 !important; /* Light Blue 700 */
-    text-decoration: underline !important;
+    color: #0288d1; /* Light Blue 700 */
+    text-decoration: underline;
 }
 
 a:visited {

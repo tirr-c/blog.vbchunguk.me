@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { StaticQuery, graphql } from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
 
 import * as styles from './Layout.module.css';
 
@@ -31,7 +31,9 @@ const Layout: React.FunctionComponent<Props> = ({
             <div className={styles.layout}>
                 <header className={styles.header}>
                     <h2 className={styles.centered}>
-                        {data.site.siteMetadata.title}
+                        <Link to="/" className={styles.title}>
+                            {data.site.siteMetadata.title}
+                        </Link>
                     </h2>
                 </header>
                 <div className={styles.body}>
