@@ -9,6 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "preserveConstEnums": true,
+    "downlevelIteration": true,
     "sourceMap": true,
     "typeRoots": ["./node_modules/@types", "./types"]
   },

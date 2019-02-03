@@ -61,4 +61,31 @@ export const createPages: GatsbyNode['createPages'] = async ({
             },
         });
     }
+
+    const postCount = data.data.allMarkdownRemark.edges.length;
+    const postsPerPage = 5;
+    const totalPages = Math.ceil(postCount / postsPerPage);
+    actions.createPage({
+        path: '/',
+        component: path.resolve(__dirname, '../src/templates/list.tsx'),
+        context: {
+            limit: postsPerPage,
+            skip: 0,
+            currentPage: 1,
+            totalPages,
+        },
+    });
+    for (const zeroBasedPage of new Array(totalPages).keys()) {
+        const currentPage = zeroBasedPage + 1;
+        actions.createPage({
+            path: `/posts/${currentPage}/`,
+            component: path.resolve(__dirname, '../src/templates/list.tsx'),
+            context: {
+                limit: postsPerPage,
+                skip: zeroBasedPage * postsPerPage,
+                currentPage,
+                totalPages,
+            },
+        });
+    }
 };
