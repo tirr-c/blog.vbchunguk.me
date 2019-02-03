@@ -26,6 +26,7 @@
     "webfontloader": "^1.6.28"
   },
   "keywords": [
+    "blog",
     "gatsby"
   ],
   "license": "MIT",

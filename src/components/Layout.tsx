@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import * as styles from './Layout.module.css';
 
 interface Props {
+    displayCC?: boolean;
     bodyClassName?: string;
 }
 
@@ -20,6 +21,7 @@ const QUERY = graphql`
 `;
 
 const Layout: React.FunctionComponent<Props> = ({
+    displayCC,
     bodyClassName,
     children,
 }) => (
@@ -45,6 +47,13 @@ const Layout: React.FunctionComponent<Props> = ({
                 </div>
                 <footer className={styles.footer}>
                     <div className={styles.centered}>
+                        {displayCC && (
+                            <>
+                                <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+                                    CC-BY-SA-4.0
+                                </a>{' '}
+                            </>
+                        )}
                         © {new Date().getFullYear()}{' '}
                         {data.site.siteMetadata.author}, Built with{' '}
                         <a href="https://www.gatsbyjs.org">Gatsby</a>

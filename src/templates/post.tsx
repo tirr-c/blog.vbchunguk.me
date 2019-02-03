@@ -28,7 +28,7 @@ const Blog: React.FunctionComponent<Props> = props => {
     return (
         <>
             <SEO title={title} description={description} />
-            <Layout bodyClassName="markdown-body">
+            <Layout displayCC bodyClassName="markdown-body">
                 <h1>{title}</h1>
                 <div
                     dangerouslySetInnerHTML={{
