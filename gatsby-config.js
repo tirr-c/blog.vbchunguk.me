@@ -5,6 +5,7 @@ module.exports = {
         title: 'Rusty Tirr',
         description: '티르의 아무글 대잔치.',
         author: 'Wonwoo Choi',
+        twitter: '@pubTirr',
     },
     plugins: [
         'gatsby-plugin-typescript',

@@ -9,6 +9,7 @@ const detailsQuery = graphql`
                 title
                 description
                 author
+                twitter
             }
         }
     }
@@ -20,11 +21,13 @@ interface DefaultSEOQueryData {
             title: string;
             description: string;
             author: string;
+            twitter: string;
         };
     };
 }
 
 interface Props {
+    type: 'listing' | 'article';
     description?: string;
     lang: string;
     meta: any[];
@@ -40,9 +43,12 @@ export default class SEO extends React.PureComponent<Props> {
     };
 
     private renderInner = (data: DefaultSEOQueryData): React.ReactNode => {
-        const { description, lang, meta, keywords, title } = this.props;
-        const metaDescription =
+        const { type, description, lang, meta, keywords, title } = this.props;
+        const siteTitle = data.site.siteMetadata.title;
+        const rawMetaDescription =
             description || data.site.siteMetadata.description;
+        const metaDescription = rawMetaDescription.replace(/\s+/g, ' ');
+        const metaTitle = type === 'listing' ? siteTitle : title;
         const finalMeta = [
             {
                 name: 'description',
@@ -50,19 +56,19 @@ export default class SEO extends React.PureComponent<Props> {
             },
             {
                 property: 'og:title',
-                content: title,
+                content: metaTitle,
             },
             {
                 property: 'og:description',
                 content: metaDescription,
             },
             {
-                property: 'og:type',
-                content: 'website',
-            },
-            {
                 name: 'twitter:card',
                 content: 'summary',
+            },
+            {
+                name: 'twitter:site',
+                content: data.site.siteMetadata.twitter,
             },
             {
                 name: 'twitter:creator',
@@ -70,13 +76,34 @@ export default class SEO extends React.PureComponent<Props> {
             },
             {
                 name: 'twitter:title',
-                content: title,
+                content: metaTitle,
             },
             {
                 name: 'twitter:description',
                 content: metaDescription,
             },
         ];
+        if (type === 'listing') {
+            finalMeta.push({
+                property: 'og:type',
+                content: 'website',
+            });
+        } else if (type === 'article') {
+            finalMeta.push(
+                {
+                    property: 'og:site_name',
+                    content: data.site.siteMetadata.title,
+                },
+                {
+                    property: 'og:type',
+                    content: 'article',
+                },
+                {
+                    property: 'og:article:author',
+                    content: data.site.siteMetadata.author,
+                },
+            );
+        }
         if (keywords.length > 0) {
             meta.push({
                 name: 'keywords',

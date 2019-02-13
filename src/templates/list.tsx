@@ -59,7 +59,7 @@ const List: React.FunctionComponent<Props> = ({ data, pageContext }) => {
         );
     return (
         <>
-            <SEO title="Posts" />
+            <SEO type="listing" title="Posts" />
             <Layout>
                 {posts}
                 <div className={styles.navigator}>

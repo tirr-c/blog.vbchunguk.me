@@ -32,7 +32,12 @@ const Blog: React.FunctionComponent<Props> = props => {
         props.data.markdownRemark.frontmatter.keywords || undefined;
     return (
         <>
-            <SEO title={title} description={description} keywords={keywords} />
+            <SEO
+                type="article"
+                title={title}
+                description={description}
+                keywords={keywords}
+            />
             <Layout displayCC bodyClassName="markdown-body">
                 <h1>{title}</h1>
                 <div className={styles.date}>
