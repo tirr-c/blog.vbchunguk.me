@@ -4,6 +4,8 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 
+import * as styles from './post.module.css';
+
 interface Props {
     data: {
         markdownRemark: {
@@ -30,6 +32,9 @@ const Blog: React.FunctionComponent<Props> = props => {
             <SEO title={title} description={description} />
             <Layout displayCC bodyClassName="markdown-body">
                 <h1>{title}</h1>
+                <div className={styles.date}>
+                    {props.data.markdownRemark.fields.date}
+                </div>
                 <div
                     dangerouslySetInnerHTML={{
                         __html: props.data.markdownRemark.html,

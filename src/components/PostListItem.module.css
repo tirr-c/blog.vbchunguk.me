@@ -9,6 +9,12 @@
     font-size: 1.1em;
 }
 
+.date {
+    margin-left: 0.5em;
+    font-size: 0.8em;
+    color: #5f6368;
+}
+
 .excerpt {
     font-size: 0.9em;
 }

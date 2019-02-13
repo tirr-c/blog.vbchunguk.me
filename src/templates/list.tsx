@@ -18,6 +18,7 @@ interface Props {
                     };
                     fields: {
                         slug: string;
+                        date: string;
                     };
                 };
             }[];
@@ -39,6 +40,7 @@ const List: React.FunctionComponent<Props> = ({ data, pageContext }) => {
                 key={node.fields.slug}
                 slug={node.fields.slug}
                 title={node.frontmatter.title}
+                date={node.fields.date}
                 excerpt={node.excerpt}
             />
         );
@@ -86,6 +88,7 @@ export const query = graphql`
                     }
                     fields {
                         slug
+                        date
                     }
                 }
             }
