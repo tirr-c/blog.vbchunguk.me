@@ -13,6 +13,7 @@ interface Props {
             excerpt: string;
             frontmatter: {
                 title: string;
+                keywords: string[] | null;
             };
             fields: {
                 date: string;
@@ -27,9 +28,11 @@ const Blog: React.FunctionComponent<Props> = props => {
         props.data.markdownRemark.frontmatter.title ||
         props.data.markdownRemark.fields.slug;
     const description = props.data.markdownRemark.excerpt;
+    const keywords =
+        props.data.markdownRemark.frontmatter.keywords || undefined;
     return (
         <>
-            <SEO title={title} description={description} />
+            <SEO title={title} description={description} keywords={keywords} />
             <Layout displayCC bodyClassName="markdown-body">
                 <h1>{title}</h1>
                 <div className={styles.date}>
@@ -52,6 +55,7 @@ export const query = graphql`
             excerpt(truncate: true)
             frontmatter {
                 title
+                keywords
             }
             fields {
                 date
