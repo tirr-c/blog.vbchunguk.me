@@ -15,6 +15,7 @@ const QUERY = graphql`
             siteMetadata {
                 title
                 author
+                repository
             }
         }
     }
@@ -49,6 +50,7 @@ const Layout: React.FunctionComponent<Props> = ({
                 </div>
                 <footer className={styles.footer}>
                     <div className={styles.centered}>
+                        <a href={data.site.siteMetadata.repository}>Repo</a> |{' '}
                         {displayCC && (
                             <>
                                 <a href="https://creativecommons.org/licenses/by-sa/4.0/">

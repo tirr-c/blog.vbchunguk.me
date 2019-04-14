@@ -6,6 +6,7 @@ module.exports = {
         description: '티르의 아무글 대잔치.',
         author: 'Wonwoo Choi',
         twitter: '@pubTirr',
+        repository: 'https://github.com/tirr-c/blog.vbchunguk.me',
     },
     plugins: [
         'gatsby-plugin-typescript',
